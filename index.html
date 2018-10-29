@@ -1,0 +1,253 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+	<title>一公里·生活</title>
+	<link rel="stylesheet" href="css/amazeui.css" />
+	<link rel="stylesheet" href="css/announce.css" />
+	<link rel="stylesheet" href="css/datouwang.css" />
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="js/amazeui.js"></script>
+	<script type="text/javascript">
+		$(document).ready(
+			function() {
+				var nowpage = 0;
+				$arrow = $('.arrow');
+				//给最大的盒子增加事件监听
+				$(".container").swipe(
+					{
+						swipe:function(event, direction, distance, duration, fingerCount) {
+							 if(direction == "up"){
+							 	nowpage = nowpage + 1;
+							 	console.log(nowpage);
+								 if(nowpage==1){
+									 $('#km-scale').addClass('km-scale');
+								 }else if(nowpage==2){
+									 $('#km-slide-bottom').addClass('km-slide-bottom');
+									 $('#km-slide-left').addClass('km-slide-left');
+									 $('#km-slide-left-1').addClass('km-slide-left-1');
+									$('.km').flexslider({
+										    initDelay: 1000,
+										    playAfterPaused: 3000
+										 });
+								 }
+								 else if(nowpage==3){
+									 $('#km-slide-right').addClass('km-slide-right');
+									 $('#km-slide-right-1').addClass('km-slide-right-1');
+									 $('.km-1').flexslider({
+										    initDelay: 0,
+										    playAfterPaused: 3000
+										 });
+								 }
+								 else if(nowpage==4){
+								 	$('.km-2').flexslider({
+										    initDelay: 0,
+										    playAfterPaused: 3000
+										 });
+								 }
+								 else if(nowpage==5){
+									 $('#km-swing').addClass('km-swing');
+									 $('#km-zoomIn').addClass('km-zoomIn');
+									 $('#km-rotateIn').addClass('km-rotateIn');
+									 $('#km-rotateIn-1').addClass('km-rotateIn-1');
+									 $('span').addClass('km-fadeIn');
+									 $arrow.addClass('km-display');
+								 }
+
+							 }else if(direction == "down"){
+							 	nowpage = nowpage - 1;
+							 }
+
+							 if(nowpage > 5){
+							 	nowpage = 5;
+							 }
+
+							 if(nowpage < 0){
+							 	nowpage = 0;
+							 }
+
+							$(".container").animate({"top":nowpage * -100 + "%"},500);
+							$(".container").attr("class","container").addClass(function() { return "page"+nowpage; }).find('.section').eq(nowpage).find('.title').addClass('active');
+							/*$(".page").eq(nowpage).addClass("cur").siblings().removeClass("cur");*/
+						}
+					}
+				);
+				});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<!--第一-->
+		<div class="page page0 cur">
+			<div class="section section-1" id="section-1">
+				<div class="km-pg0">
+					<img src="img/img1.png"/>
+				</div>
+			</div>
+		</div>
+		<div class="page page1">
+			<!--第二页-->
+			<div class="section section-2" id="section-2">
+				<div class="title" style="padding-top: 5%;">
+					<p class="km-font-9 km-color-1 tit km-margin">“一公里·生活”云平台</p>
+					<p class="km-font-4 km-color-2 tit km-margin" style="padding-top: 1.1rem;text-align: left;">旨在建设一套“互联网+”的房产营销平台和社区增值服务体系。通过将 O2O 模式引入到传统的房地产营销和社区物业服务领域，建立基于点对点即时通信技术的现代服务业智能 CRM 系统，并提供了便捷的移动支付手段，从而达到集推广（品牌）、咨询（服务）、销售（消费）、入住（流转）以及社区（生活）等房地产业务流的数据统一和平滑过渡，实现用户体验最优化。</p>
+				</div>
+				<div style="width: 90%;">
+					<div id="km-scale" style="padding-top: 4.5rem;">
+						<img src="img/img3.png" width="90%" height="auto"/>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--第三页-->
+		<div class="page page2">
+			<div class="section section-3" id="section-3">
+				<div class="title" style="padding-top: 6%;">
+					<p class="km-font-9 km-color-2 tit">微信接入，用户零门槛！</p>
+					<p class="km-font-4 km-color-2 tit km-margin" style="padding-top: 1.5rem;text-align: left;">用户学习零成本，只需通过简单的点按输入即可完成相关的物业业务。</p>
+				</div>
+				<div id="km-slide-bottom" class="radiotabs" style="margin-top: 5%;">
+						<input type="radio" name="tab" id="tab1" class="tabs"/>
+						<input type="radio" name="tab" id="tab2" class="tabs" checked="checked"/>
+							<label for="tab2" class="point"><img src="img/img0.png" width="60%"/>
+							</label>
+					<!--<div id="view1" class="tabcontent">
+						<div class="km-margin" style="padding-top:5%;align-content: center;">
+							<div id="km-slide-bottom" class="am-animation-delay-1">
+								<img src="img/img4.png" style="width:45%;height: auto;margin-top:10%;z-index: 0;"/>
+							</div>
+							<div id="km-slide-left" class="am-animation-delay-2">
+								<img src="img/img5.png" style="width:48%;height: auto;margin-top:-83%;margin-left:30%;z-index: 10;"/>
+							</div>
+							<div id="km-slide-left-1" class="am-animation-delay-3">
+								<img src="img/img6.png" style="width:41%;height: auto;margin-top:-82%;margin-left:55%;z-index: 20;"/>	
+							</div>
+						</div>
+					</div>-->
+					<div id="view2" class="tabcontent">
+						<div class="km am-slider am-slider-default km-lbimg">
+							  <ul class="am-slides">
+							    <li><img src="img/lb1.png"/></li>
+							    <li><img src="img/lb2.png"/></li>
+							    <li><img src="img/lb3.png"/></li>
+							    <li><img src="img/lb4.png"/></li>
+							    <li><img src="img/lb5.png"/></li>
+							  </ul>  	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--第四页-->
+		<div class="page page3">
+			<div class="section section-4" id="section-4">
+				<div style="padding-top: 13%;text-align: center;">
+					<p class="km-font-9 km-color-1 tit">专属APP，沟通便捷。</p>
+				</div>
+				<div id="km-slide-right" class="radiotabs" style="top: 15%;">
+						<input type="checkbox" name="tab" id="tab3" class="tabs"/>
+						<input type="checkbox" name="tab" id="tab4" class="tabs" checked="checked"/>
+							<label for="tab4" class="point" style="padding: 0 85% 0 1rem;"><img src="img/img00.png" width="100%"/>
+							</label>
+					<!--<div id="view3" class="tabcontent">
+						<div id="animations-group" style="margin:0 5%;">
+							<div>
+								<img src="img/group1.png" style="width: 53%;height: auto;margin-top:9%;margin-left:55%;z-index: 0;"/>
+							</div>
+							<div id="km-slide-right" class="am-animation-delay-1">
+								<img src="img/group2.png" style="width: 61%;height: auto;margin-top:-84%;margin-left:32%;z-index: 10;"/>
+							</div>
+							<div id="km-slide-right-1" class="am-animation-delay-1">
+								<img src="img/group3.png" style="width: 63%;height: auto;margin-top:-85%;margin-left:6%;z-index: 20;"/>	
+							</div>
+						</div>
+					</div>-->
+					<div id="view4" class="tabcontent">
+						<div class="km-1 am-slider am-slider-default km-lbimg">
+						  <ul class="am-slides">
+						    <li><img src="img/lb01.png"/></li>
+						    <li><img src="img/lb02.png"/></li>
+						    <li><img src="img/lb03.png"/></li>
+						    <li><img src="img/lb04.png"/></li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+				<div class="title" style="text-align: left;top: 85%;">
+					<p class="km-font-4 km-color-3 tit km-margin">智能 CRM 为用户带来一对一专属服务；随时随地响应系统派单、解除用户困扰。</p>
+				</div>
+			</div>
+		</div>
+		<!--第五页-->
+		<div class="page page4">
+			<div class="section section-5" id="section-5">
+				<div style="padding-top: 23%;text-align: center;">
+					<p class="km-font-9 km-color-4">注重体验，功能丰富。</p>
+				</div>
+				<div class="km-bgimg">
+					<img src="img/img8.png" width="100%" height="100%"/>
+				</div>
+				<div class="radiotabs" style="margin-top: -10%;">
+						<input type="checkbox" name="tab" id="tab5" class="tabs"/>
+						<input type="checkbox" name="tab" id="tab6" class="tabs" checked="checked"/>
+							<label for="tab6" class="point"><img src="img/img0.png" width="60%"/>
+							</label>
+					<div id="view5" class="tabcontent">
+						<div style="width:80%;margin: 25% 13% 0;z-index: 10;">
+							<img src="img/img7.png" width="100%"/>
+						</div>
+					</div>
+					<div id="view6" class="tabcontent">
+						<div class="km-2 am-slider am-slider-default km-lbimg" style="margin-top: 23%;">
+						  <ul class="am-slides">
+						    <li><img src="img/lb-1.png"/></li>
+						    <li><img src="img/lb-2.png"/></li>
+						    <li><img src="img/lb-3.png"/></li>
+						    <li><img src="img/lb-4.png"/></li>
+						    <li><img src="img/lb-5.png"/></li>
+						    <li><img src="img/lb-6.png"/></li>						    
+						  </ul>
+						</div>
+					</div>
+				</div>
+				<div class="title" style="text-align: left;top: 85%;">
+					<p class="km-font-4 km-color-2 tit km-margin">业务数据自动生成，管理人员全局把控、用户提醒一键推送、数据分析即时呈现。</p>
+				</div>
+			</div>
+		</div>
+		<div class="page page5">
+			<div class="section section-6" id="section-6">
+				<div style="text-align: center;padding-top: 13%;">
+					<p id="km-swing" class="km-font-9 km-color-1 am-animation-delay-1 tit" style="margin:0 10%;">关于我们</p>
+					<p id="km-zoomIn" class="km-font-4 km-color-3 am-animation-delay-2 tit" style="padding-top:1.5rem;text-align: left;margin:0 10%;">多位建筑房地产业和物业管理业的精英加盟，力争打造一流的业务模型和解决方案；<br><br>来自中国领先综合性旅行服务公司的总技术架构师，无论是从系统性能，还是安全防护均做到最佳，确保客户数据万无一失；<br><br>优秀的视觉设计师，精钻扁平化设计，曾独立设计完成多套时下流行的互联网产品。</p>
+				</div>
+				<div class="am-u-sm-12 km-local">
+					<div class="am-u-sm-2" style="margin-top:2%;">
+						<img id="km-rotateIn" class="am-animation-delay-3" src="img/icon-p.png" width="75%" height="auto"/>
+						<img id="km-rotateIn-1" class="am-animation-delay-5" style="margin-top: 2rem;" src="img/icon-l.png" width="75%" height="auto"/>
+					</div>
+					<div class="am-u-sm-6 km-font-2 km-color-3" style="margin-top:2%;text-align: left;margin-left:-5%;padding-right: 0.5rem;">
+						<span class="am-animation-delay-4">021-31300018</span>
+						<div style="margin-top: 1.8rem;">
+							<span class="am-animation-delay-6">上海市普陀区真南路2528号1幢2层2360室</span>
+						</div>
+					</div>
+					<div class="am-u-sm-4" style="text-align: center;">
+						<img src="img/icon3.png" style="margin-right:2%;width: 100%;height: 100%;"/>
+					</div>
+				</div>
+				<div style="width: 100%;z-index: -1;position: absolute;left: 0;bottom: 0;">
+					<img src="img/img9.png" width="100%" height="auto"/>
+				</div>
+				<div class="km-font-2 km-color-2 am-u-sm-12" style="position: absolute;bottom: 3%;left: 0;"><p style="text-align: center;">CopyRight © 2015-2016 1km.life, All Rights Reserved</p></div>
+			</div>
+		</div>
+	</div>
+	<div id="arrow" class="arrow" style="width: 10%;">
+		<img src="img/img2.png" width="100%" height="auto"/>
+	</div>   
+</body>
+</html>

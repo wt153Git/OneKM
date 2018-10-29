@@ -1,0 +1,47 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl, dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,iframe{margin:0; padding:0;}
+p{font-family: arial,"黑体";line-height:1.5;}
+ol,ul{list-style:none;}
+html,body{font-size:62.5%; max-width: 98rem;margin: 0 auto;width:100%; height:100%; overflow:hidden;}
+.section{ position:relative; width:100%; height:100%; background-position:center center; background-repeat:no-repeat;}
+.section .title{width:100%;position:absolute;top:10%;text-align:center;}
+.section .title p{opacity:0}
+.section .title.active .tit{ opacity:1;transform:translateY(-3.0rem);-webkit-transform:translateY(-3.0rem);transition:all 2.5s cubic-bezier(0.86,0,0.8,1);-webkit-transition:all 2.5s cubic-bezier(0.86,0,0.8,1);}
+.section-1{ background:url(../img/bg1.png) no-repeat top center;animation:section-1 7s;-webkit-animation:section-1 7s;background-size: 100% 100%;}
+@keyframes section-1{0%{opacity: 0.9;background-size: 150% 150%;} 100%{opacity: 1;background-size: 100% 100%;}}
+@-webkit-keyframes section-1{0%{opacity: 0.9;background-size: 150% 150%;} 100%{opacity: 1;background-size: 100% 100%;}}
+.section-2{ background: url(../img/bg2.png) no-repeat;background-size: 100% auto;background-size: cover;}
+.section-3{ background: url(../img/bg3.png) no-repeat;background-size: 100% 100%;background-size: cover;}
+.section-4{ background: #F7F1F1;background-size: 100% 100%;}
+.section-5{ background: #FFFFFF;background-size: 100% 100%;}
+.container{ width: 100%;height: 100%;position: absolute;left: 0;top: 0%;}
+.container .page{height: 100%;position: relative;}
+.arrow{ opacity:1;animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;-webkit-animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;position:absolute;bottom:2.7rem;left:50%;margin-left: -5%;cursor:pointer;overflow: hidden;}
+.arrow:hover{ animation-play-state:paused;-webkit-animation-play-state:paused;}
+@keyframes arrow{ %0,%100{bottom:1.5rem; opacity:1;} 50%{bottom:3.2rem; opacity:.3} }
+@-webkit-keyframes arrow{ %0,%100{bottom:1.5rem; opacity:1;} 50%{bottom:3.2rem; opacity:.3} }
+.point{position: absolute;top: 50%;right: 0.8rem;opacity:1;animation:point 1.5s cubic-bezier(0.5,0,0.1,1) infinite;-webkit-animation:point 1.5s cubic-bezier(0.5,0,0.1,1) infinite;cursor:pointer;overflow: hidden;}
+.point:hover{animation-play-state:paused;-webkit-animation-play-state:paused;}
+@keyframes point
+	{ 
+		%0,%100{opacity:1;} 
+		50%{opacity:.5} 
+	}
+@-webkit-keyframes point
+	{ 
+		%0,%100{opacity:1;} 
+		50%{opacity:.5} 
+	}
+/*tab相关属性*/
+.radiotabs{width:100%; position: absolute;top: 25%;left: 0;}
+.tabs{display:none;color:#000;font-size: 1.5rem; margin: 0 1rem;}
+.tabs + label{display:block;text-decoration:none;z-index: 10;}
+.tabcontent {width:100%;z-index:20; display:none; top:-1px;}
+.tabs:checked + label{display:none;z-index:10;font-size: 1.5rem;}
+#tab1:checked ~ #view1 {display:block;}
+#tab2:checked ~ #view2 {display:block;}
+#tab3:checked ~ #view3 {display:block;}
+#tab4:checked ~ #view4 {display:block;}
+#tab4:checked ~ #view3 {display:none;}
+#tab5:checked ~ #view5 {display:block;}
+#tab6:checked ~ #view6 {display:block;}
+#tab6:checked ~ #view5 {display:none;}

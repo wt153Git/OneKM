@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function getXXXValue(){
+				alter(document.getElementById('customControl_XXX').attributes['value'].value);
+			}
+			function createYYYControl(){
+				var cy=document.createElement('YYY');
+				cy.id='customControl_YYY';
+				cy.value='自定义元素yyy';
+				cy.checked=true;
+				document.body.appendChild(cy);
+				alter(document.getElementById('customControl_YYY').value);
+				alter(document.getElementById('customControl_YYY').checked);
+			}
+		</script>
+	</head>
+	<body>
+		<xxx id='customControl_XXX' value='自定义元素xxx'></xxx>
+		<input type="button" value="取得xxx元素的值" onclick="getXXXvalue();"/>
+		<input type="button" value="生成yyy元素并取得该元素的值" onclick="createYYYcontrol();"/>
+	</body>
+</html>
